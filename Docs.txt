@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Inventory Planning Tool</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Inter, Arial, sans-serif;
+      margin: 0;
+      background: #ffffff;
+      color: #1f2937;
+    }
+    header {
+      padding: 80px 20px;
+      text-align: center;
+      background: #f9fafb;
+    }
+    header h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 20px;
+      color: #6b7280;
+    }
+    .cta {
+      margin-top: 30px;
+    }
+    .cta a {
+      padding: 14px 28px;
+      background: #7c3aed;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 24px;
+      background: white;
+    }
+    .card h3 {
+      margin-top: 0;
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #f3f4f6;
+      color: #6b7280;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Inventory Planning Tool</h1>
+  <p>Clear priorities. Smarter ordering. Less guesswork.</p>
+  <div class="cta">
+    <a href="https://YOUR-STREAMLIT-APP-LINK-HERE" target="_blank">
+      Launch App
+    </a>
+  </div>
+</header>
+
+<section>
+  <h2>Why small businesses use this</h2>
+  <div class="features">
+    <div class="card">
+      <h3>📊 Priority-based ordering</h3>
+      <p>Know exactly which SKUs need action first.</p>
+    </div>
+    <div class="card">
+      <h3>🚨 Urgency alerts</h3>
+      <p>Instantly see stockout risks and excess inventory.</p>
+    </div>
+    <div class="card">
+      <h3>💰 Budget-aware planning</h3>
+      <p>Order within budget without manual spreadsheets.</p>
+    </div>
+    <div class="card">
+      <h3>📧 Email alerts (Pro)</h3>
+      <p>Get urgent SKU alerts straight to your inbox.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Inventory Planning Tool · Built for Small Businesses
+</footer>
+
+</body>
+</html>
