@@ -4,12 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Inventory Planning Tool</title>
-  <meta name="description" content="Simple inventory priorities for small businesses. Upload demand → get reorder plan → email alerts (Pro)." />
+  <meta name="description" content="Simple inventory priorities for small businesses. Upload demand → get reorder plan → optional alerts." />
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <!-- Top Bar -->
+
+  <!-- NAVBAR -->
   <header class="topbar">
     <div class="container topbar__inner">
       <div class="brand">
@@ -18,241 +19,230 @@
       </div>
 
       <nav class="nav">
+        <!-- Apps dropdown -->
+        <div class="dropdown">
+          <button class="dropbtn">Apps ▾</button>
+          <div class="dropdown-content">
+            <a href="#inventory"><span class="icon">📦</span> Inventory</a>
+            <a href="#ordering"><span class="icon">🛒</span> Ordering</a>
+            <a href="#reporting"><span class="icon">📊</span> Reporting</a>
+            <a href="#alerts"><span class="icon">✉️</span> Alerts (Pro)</a>
+          </div>
+        </div>
+
         <a href="#features">Features</a>
         <a href="#how">How it works</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
-      </nav>
 
-      <div class="topbar__cta">
-        <a class="btn btn--ghost" href="#pricing">See pricing</a>
-        <a class="btn btn--primary" href="YOUR_STREAMLIT_APP_URL_HERE" target="_blank" rel="noreferrer">Try it free</a>
-      </div>
+        <!-- change this link -->
+        <a class="btn primary" href="YOUR_STREAMLIT_LINK_HERE" target="_blank" rel="noreferrer">Try it free</a>
+      </nav>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container hero__inner">
-      <div class="hero__content">
-        <h1>All your inventory priorities on one platform.</h1>
-        <p class="hero__sub">
-          Built for small businesses still using Excel.
-          Upload demand data, instantly see urgent SKUs, and generate a clean reorder plan.
-        </p>
+  <!-- HERO -->
+  <main>
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__left">
+          <h1>All your inventory priorities on one platform.</h1>
+          <p class="muted">
+            Built for small businesses still using Excel. Upload demand data, instantly see urgent SKUs,
+            and generate a clean reorder plan.
+          </p>
 
-        <div class="hero__buttons">
-          <a class="btn btn--primary btn--lg" href="YOUR_STREAMLIT_APP_URL_HERE" target="_blank" rel="noreferrer">
-            Try the Planner
-          </a>
-          <a class="btn btn--ghost btn--lg" href="#how">
-            See how it works
-          </a>
-        </div>
-
-        <div class="hero__trust">
-          <span>✅ CSV upload</span>
-          <span>✅ Priority score</span>
-          <span>✅ Budget limits</span>
-          <span>✅ Vendor summary</span>
-          <span>🔒 Email alerts (Pro)</span>
-        </div>
-      </div>
-
-      <div class="hero__mock">
-        <div class="mockcard">
-          <div class="mockcard__top">
-            <div class="dot dot--r"></div><div class="dot dot--y"></div><div class="dot dot--g"></div>
-            <div class="mockcard__title">Planner Preview</div>
+          <div class="hero__cta">
+            <a class="btn primary" href="YOUR_STREAMLIT_LINK_HERE" target="_blank" rel="noreferrer">Try the Planner</a>
+            <a class="btn" href="#how">See how it works</a>
           </div>
-          <div class="mockcard__body">
-            <div class="mockmetric">
-              <div class="mockmetric__k">🔴 Urgent</div><div class="mockmetric__v">3</div>
-            </div>
-            <div class="mockmetric">
-              <div class="mockmetric__k">🟡 Watch</div><div class="mockmetric__v">5</div>
-            </div>
-            <div class="mockmetric">
-              <div class="mockmetric__k">🟢 Safe</div><div class="mockmetric__v">42</div>
+
+          <div class="badges">
+            <span class="badge">✅ CSV upload</span>
+            <span class="badge">✅ Priority score</span>
+            <span class="badge">✅ Budget limits</span>
+            <span class="badge">✅ Vendor summary</span>
+            <span class="badge pro">🔒 Email alerts (Pro)</span>
+          </div>
+        </div>
+
+        <div class="hero__right">
+          <div class="mock">
+            <div class="mock__top">
+              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              <span class="mock__title">Planner Preview</span>
             </div>
 
-            <div class="mocktable">
-              <div class="mockrow mockrow--head">
-                <span>SKU</span><span>Urgency</span><span>Order Qty</span><span>Risk</span>
+            <div class="mock__cards">
+              <div class="pill urgent"><span>Urgent</span><b>3</b></div>
+              <div class="pill watch"><span>Watch</span><b>5</b></div>
+              <div class="pill safe"><span>Safe</span><b>42</b></div>
+            </div>
+
+            <div class="mock__table">
+              <div class="row head">
+                <div>SKU</div><div>Urgency</div><div>Order Qty</div><div>Risk</div>
               </div>
-              <div class="mockrow mockrow--urgent">
-                <span>SKU-014</span><span>🔴 URGENT</span><span>120</span><span>Stockout</span>
+              <div class="row r-urgent">
+                <div><b>SKU-014</b></div><div>🔴 URGENT</div><div><b>120</b></div><div><b>Stockout</b></div>
               </div>
-              <div class="mockrow mockrow--watch">
-                <span>SKU-221</span><span>🟡 WATCH</span><span>60</span><span>Watch</span>
+              <div class="row r-watch">
+                <div><b>SKU-221</b></div><div>🟡 WATCH</div><div><b>60</b></div><div><b>Watch</b></div>
               </div>
-              <div class="mockrow">
-                <span>SKU-105</span><span>🟢 SAFE</span><span>0</span><span>OK</span>
+              <div class="row r-safe">
+                <div><b>SKU-105</b></div><div>🟢 SAFE</div><div><b>0</b></div><div><b>OK</b></div>
               </div>
             </div>
 
-            <div class="mocknote">Looks like a real planning dashboard — not a spreadsheet.</div>
+            <div class="mock__note muted">Looks like a real planning dashboard — not a spreadsheet.</div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Features -->
-  <section id="features" class="section">
-    <div class="container">
-      <div class="section__head">
-        <h2>Simple. Efficient. Affordable.</h2>
-        <p>Everything small businesses need to plan inventory — without ERP complexity.</p>
-      </div>
+    <!-- FEATURES -->
+    <section id="features" class="section">
+      <div class="container">
+        <h2 class="section-title">Features</h2>
+        <p class="section-subtitle">Everything you need to plan inventory fast.</p>
 
-      <div class="grid">
-        <div class="card">
-          <h3>✅ Priority Score</h3>
-          <p>Automatically ranks SKUs so planners know what to order first.</p>
-        </div>
-        <div class="card">
-          <h3>💰 Budget Limits</h3>
-          <p>Set a cash cap and generate the best order plan within your budget.</p>
-        </div>
-        <div class="card">
-          <h3>🏭 Vendor Summary</h3>
-          <p>Group approved orders by vendor and export clean purchase lists.</p>
-        </div>
-        <div class="card">
-          <h3>📥 One-click Export</h3>
-          <p>Download recommendations CSV and share instantly with your team.</p>
-        </div>
-        <div class="card">
-          <h3>🔔 Alerts (Pro)</h3>
-          <p>Email “Top urgent SKUs” automatically (paid feature).</p>
-        </div>
-        <div class="card">
-          <h3>📈 Forecasting</h3>
-          <p>Uses demand history to recommend safety stock and reorder quantity.</p>
+        <div class="grid">
+          <div class="card"><h3>✅ CSV Upload</h3><p>Start in minutes—no integrations needed.</p></div>
+          <div class="card"><h3>⚡ Priority Score</h3><p>Rank SKUs so the most urgent are always on top.</p></div>
+          <div class="card"><h3>🛡️ Safety Stock</h3><p>Choose service level and calculate safety stock automatically.</p></div>
+          <div class="card"><h3>💰 Budget Limits</h3><p>Approve orders within budget and export the final plan.</p></div>
+          <div class="card"><h3>🏭 Vendor Summary</h3><p>Group approved quantities by vendor for clean purchasing.</p></div>
+          <div class="card"><h3>🔔 Email Alerts (Pro)</h3><p>Send “Top urgent SKUs” automatically.</p></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- How it works -->
-  <section id="how" class="section section--alt">
-    <div class="container">
-      <div class="section__head">
-        <h2>How it works</h2>
-        <p>3 steps. No setup project. No consultants.</p>
-      </div>
-
-      <div class="steps">
-        <div class="step">
-          <div class="step__n">1</div>
-          <h3>Upload CSV</h3>
-          <p>Demand + inventory + lead time. (Same format you already use.)</p>
-        </div>
-        <div class="step">
-          <div class="step__n">2</div>
-          <h3>Get priorities</h3>
-          <p>See urgent SKUs, safety stock, and recommended orders.</p>
-        </div>
-        <div class="step">
-          <div class="step__n">3</div>
-          <h3>Export & act</h3>
-          <p>Download per vendor, apply budget limits, and reorder confidently.</p>
+    <!-- APPS SECTIONS -->
+    <section id="inventory" class="section alt">
+      <div class="container">
+        <h2 class="section-title">Inventory</h2>
+        <p class="section-subtitle">Days of cover, priority score, safety stock, and risk flags.</p>
+        <div class="grid">
+          <div class="card"><h3>Days of Cover</h3><p>See how long stock lasts at current demand.</p></div>
+          <div class="card"><h3>Stockout Risk</h3><p>Flag urgent SKUs before they run out.</p></div>
+          <div class="card"><h3>Excess Risk</h3><p>Identify overstock & slow movers.</p></div>
         </div>
       </div>
+    </section>
 
-      <div class="center">
-        <a class="btn btn--primary btn--lg" href="YOUR_STREAMLIT_APP_URL_HERE" target="_blank" rel="noreferrer">
-          Open the Planner
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing -->
-  <section id="pricing" class="section">
-    <div class="container">
-      <div class="section__head">
-        <h2>Pricing</h2>
-        <p>Start free. Upgrade when you want automation.</p>
-      </div>
-
-      <div class="pricing">
-        <div class="pricecard">
-          <h3>Free</h3>
-          <div class="pricecard__price">$0</div>
-          <ul>
-            <li>CSV upload</li>
-            <li>Priority score</li>
-            <li>Reorder recommendations</li>
-            <li>Budget limits</li>
-            <li>Vendor summary</li>
-            <li>CSV export</li>
-          </ul>
-          <a class="btn btn--ghost btn--lg" href="YOUR_STREAMLIT_APP_URL_HERE" target="_blank" rel="noreferrer">Try free</a>
-        </div>
-
-        <div class="pricecard pricecard--pro">
-          <div class="badge">Pro</div>
-          <h3>Pro (Coming soon)</h3>
-          <div class="pricecard__price">$$ / month</div>
-          <ul>
-            <li>Everything in Free</li>
-            <li>🔔 Email alerts (Top urgent SKUs)</li>
-            <li>Scheduled reports</li>
-            <li>Team access</li>
-          </ul>
-          <a class="btn btn--primary btn--lg" href="#faq">Join waitlist</a>
-          <p class="muted">You can add Stripe later.</p>
+    <section id="ordering" class="section">
+      <div class="container">
+        <h2 class="section-title">Ordering</h2>
+        <p class="section-subtitle">Recommended order qty, MOQs, approvals, and budgeting.</p>
+        <div class="grid">
+          <div class="card"><h3>Recommended Orders</h3><p>Generate reorder quantities from demand + lead time.</p></div>
+          <div class="card"><h3>Budget Approval</h3><p>Auto-approve within your max spend.</p></div>
+          <div class="card"><h3>Vendor Summary</h3><p>Roll-up orders by vendor for one clean PO list.</p></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FAQ -->
-  <section id="faq" class="section section--alt">
-    <div class="container">
-      <div class="section__head">
-        <h2>FAQ</h2>
+    <section id="reporting" class="section alt">
+      <div class="container">
+        <h2 class="section-title">Reporting</h2>
+        <p class="section-subtitle">Export plans and share actions with your team.</p>
+        <div class="grid">
+          <div class="card"><h3>Download CSV</h3><p>Export recommendations and approved plan instantly.</p></div>
+          <div class="card"><h3>Action List</h3><p>Urgent SKUs first—clear “what to do next”.</p></div>
+          <div class="card"><h3>KPI Summary</h3><p>Urgent / Watch / Safe counts for owners.</p></div>
+        </div>
       </div>
+    </section>
 
-      <div class="faq">
-        <details>
-          <summary>Do I need an ERP to use this?</summary>
-          <p>No. This is designed for small businesses using Excel or basic tools.</p>
-        </details>
-        <details>
-          <summary>What file format do you support?</summary>
-          <p>CSV. You upload your demand and inventory data and get a reorder plan.</p>
-        </details>
-        <details>
-          <summary>Can I use it for multiple vendors?</summary>
-          <p>Yes. Add a <code>vendor</code> column to your CSV to generate vendor-wise summaries.</p>
-        </details>
-        <details>
-          <summary>How do alerts work?</summary>
-          <p>Alerts are a Pro feature. It emails “Top urgent SKUs” automatically.</p>
-        </details>
+    <section id="alerts" class="section">
+      <div class="container">
+        <h2 class="section-title">Email Alerts (Pro)</h2>
+        <p class="section-subtitle">Automated “Top urgent SKUs” emails for owners and buyers.</p>
+        <div class="grid">
+          <div class="card"><h3>Scheduled Alerts</h3><p>Daily or weekly reminders (future upgrade).</p></div>
+          <div class="card"><h3>Urgent Only</h3><p>Send only when there are urgent SKUs.</p></div>
+          <div class="card"><h3>Pro Feature</h3><p>This is a paid add-on that saves time.</p></div>
+        </div>
       </div>
+    </section>
 
-      <div class="footercta">
-        <h3>Ready to stop guessing?</h3>
-        <p>Upload your CSV and get a professional reorder plan in minutes.</p>
-        <a class="btn btn--primary btn--lg" href="YOUR_STREAMLIT_APP_URL_HERE" target="_blank" rel="noreferrer">Try it free</a>
-      </div>
-    </div>
-  </section>
+    <!-- HOW -->
+    <section id="how" class="section alt">
+      <div class="container">
+        <h2 class="section-title">How it works</h2>
 
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div>© <span id="year"></span> Inventory Planning Tool</div>
-      <div class="footer__links">
-        <a href="#features">Features</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#faq">FAQ</a>
+        <div class="steps">
+          <div class="step"><span class="step-num">1</span><div><b>Upload</b><br/>Upload demand CSV (SKU, date, demand_qty, on_hand, incoming, lead_time_days, moq).</div></div>
+          <div class="step"><span class="step-num">2</span><div><b>Review</b><br/>See urgent SKUs, risks, and recommended order quantities.</div></div>
+          <div class="step"><span class="step-num">3</span><div><b>Approve & Export</b><br/>Apply budget limits, then download your plan.</div></div>
+        </div>
       </div>
-    </div>
-  </footer>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="section">
+      <div class="container">
+        <h2 class="section-title">Pricing</h2>
+        <p class="section-subtitle">Start free. Upgrade when Pro features save you hours.</p>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Free</h3>
+            <p class="price">$0</p>
+            <ul class="list">
+              <li>CSV upload</li>
+              <li>Priority score</li>
+              <li>Download plan</li>
+            </ul>
+            <a class="btn" href="YOUR_STREAMLIT_LINK_HERE" target="_blank" rel="noreferrer">Try free</a>
+          </div>
+
+          <div class="card featured">
+            <h3>Pro</h3>
+            <p class="price">$19–$49 / month</p>
+            <ul class="list">
+              <li>Email alerts</li>
+              <li>Budget controls</li>
+              <li>Vendor summary</li>
+            </ul>
+            <a class="btn primary" href="YOUR_STREAMLIT_LINK_HERE" target="_blank" rel="noreferrer">Start Pro</a>
+          </div>
+
+          <div class="card">
+            <h3>Business</h3>
+            <p class="price">Custom</p>
+            <ul class="list">
+              <li>Multi-user</li>
+              <li>Integrations</li>
+              <li>Support</li>
+            </ul>
+            <a class="btn" href="#faq">Contact</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section alt">
+      <div class="container">
+        <h2 class="section-title">FAQ</h2>
+
+        <div class="faq">
+          <details><summary>Do I need integrations?</summary><p>No. Start with CSV. Add integrations later if needed.</p></details>
+          <details><summary>Is this only for small businesses?</summary><p>Yes — teams planning in Excel get value immediately.</p></details>
+          <details><summary>Can I export the plan?</summary><p>Yes, export recommendations and approved plan as CSV.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div>© <span id="year"></span> Inventory Planning Tool</div>
+        <div class="muted">Made for small business operations teams.</div>
+      </div>
+    </footer>
+  </main>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
